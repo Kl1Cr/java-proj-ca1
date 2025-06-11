@@ -16,6 +16,7 @@ public class StudentLibrary {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.print("Welcome to Java-CA1");
+        System.out.print("Welcome to Java-CA1");
     }
     
 }
