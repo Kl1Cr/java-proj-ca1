@@ -8,7 +8,7 @@ package java.ca1;
  *
  * @author Kamal
  */
-public class JAVACA1 {
+public class StudentLibrary {
 
     /**
      * @param args the command line arguments
