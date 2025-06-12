@@ -23,4 +23,9 @@ public class addStudent {
     this.name = name;
     this.admin_num =admin_num;
     }
+    public String getStudent(String name, String admin_num){
+    
+        return "Student name: " + this.name + " Admin No: " + this.admin_num;
+    
+    }
 }
