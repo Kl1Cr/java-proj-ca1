@@ -18,7 +18,9 @@ public class StudentLibrary {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<createNewStudents> studentList = new ArrayList<>();
+       ArrayList<createNewStudents> studentList = new ArrayList<>();
+        // Create 8 initial students one by one using createStudent
+
         // TODO code application logic here
         while(true){
        String userOption = JOptionPane.showInputDialog(null, 
@@ -54,17 +56,25 @@ public class StudentLibrary {
                 int student = Integer.parseInt(studentOption);
                 if(student==1){
                 //To do
+                 String displayAllStudents = " ";
+                for(int i = 0; i<studentList.size();i++){
+                createNewStudents studentObj = studentList.get(i);
+                displayAllStudents = displayAllStudents + "Admin No: " + studentObj.getAdminNum() + "\nName: " + studentObj.getName() + "\n\n";
+                }
+                JOptionPane.showMessageDialog(null,
+                                           displayAllStudents,
+                                            "Student Management",
+                                            JOptionPane.INFORMATION_MESSAGE);
+                
                 }else if(student==2){
                 //Call method or something here 
                 }else if(student==3){
                 //Call method or something here
                 createNewStudents newStudent = new createNewStudents();
-                newStudent.createStudent();
-                studentList.add(newStudent);
-                JOptionPane.showMessageDialog(null,
-        "Student added:\n" + newStudent.getStudent(),
-        "Success",
-        JOptionPane.INFORMATION_MESSAGE);
+                                newStudent.createStudent(studentList);
+                                if (!newStudent.getName().isEmpty()) {
+                                    studentList.add(newStudent);
+                                }
                 }else if(student==4){
                 //Call method or something here 
                 }else if(studentOption == null){
