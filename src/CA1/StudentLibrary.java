@@ -19,7 +19,24 @@ public class StudentLibrary {
      */
     public static void main(String[] args) {
        ArrayList<createNewStudents> studentList = new ArrayList<>();
-        // Create 8 initial students one by one using createStudent
+       // ArrayList<>();
+        // Initialized 8 default students
+        studentList.add(new createNewStudents());
+        studentList.get(0).setStudent("Alice Tan", "p2429167");
+        studentList.add(new createNewStudents());
+        studentList.get(1).setStudent("Bob Lim", "p2427154");
+        studentList.add(new createNewStudents());
+        studentList.get(2).setStudent("Charlie Ng", "p2423141");
+        studentList.add(new createNewStudents());
+        studentList.get(3).setStudent("Daisy Koh", "p2427689");
+        studentList.add(new createNewStudents());
+        studentList.get(4).setStudent("Ethan Wong", "p2429961");
+        studentList.add(new createNewStudents());
+        studentList.get(5).setStudent("Fiona Lee", "p2429223");
+        studentList.add(new createNewStudents());
+        studentList.get(6).setStudent("George Tan", "p2427800");
+        studentList.add(new createNewStudents());
+        studentList.get(7).setStudent("Hannah Sim", "p2420089");
 
         // TODO code application logic here
         while(true){
@@ -67,7 +84,37 @@ public class StudentLibrary {
                                             JOptionPane.INFORMATION_MESSAGE);
                 
                 }else if(student==2){
-                //Call method or something here 
+                //Call method or something here
+                String searchName = JOptionPane.showInputDialog(null,
+                                        "Enter the student's name to search:",
+                                        "Search Student",
+                                        JOptionPane.QUESTION_MESSAGE);
+                                if (searchName == null || searchName.trim().isEmpty()) {
+                                    JOptionPane.showMessageDialog(null,
+                                            "Search canceled or no name entered.",
+                                            "Search Student",
+                                            JOptionPane.INFORMATION_MESSAGE);
+                                    break;
+                                }
+                                String searchResults = "";
+                                boolean found = false;
+                                for (createNewStudents studentObj : studentList) {
+                                    if (studentObj.getName().equalsIgnoreCase(searchName.trim())) {
+                                        searchResults += "Admin No: " + studentObj.getAdminNum() + "\nName: " + studentObj.getName() + "\n\n";
+                                        found = true;
+                                    }
+                                }
+                                if (found) {
+                                    JOptionPane.showMessageDialog(null,
+                                            searchResults,
+                                            "Search Results",
+                                            JOptionPane.INFORMATION_MESSAGE);
+                                } else {
+                                    JOptionPane.showMessageDialog(null,
+                                            "No student found with name \"" + searchName.trim() + "\".",
+                                            "Search Results",
+                                            JOptionPane.ERROR_MESSAGE);
+                                }
                 }else if(student==3){
                 //Call method or something here
                 createNewStudents newStudent = new createNewStudents();
@@ -77,6 +124,10 @@ public class StudentLibrary {
                                 }
                 }else if(student==4){
                 //Call method or something here 
+                JOptionPane.showMessageDialog(null,
+                                        "Total number of students: " + studentList.size(),
+                                        "Student Management",
+                                        JOptionPane.INFORMATION_MESSAGE);
                 }else if(studentOption == null){
                 isStudentOption = false;
                 continue;
